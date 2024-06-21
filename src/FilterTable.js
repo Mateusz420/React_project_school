@@ -1,17 +1,16 @@
 import React from 'react';
-import { FormControl, FormGroup, FormControlLabel, Checkbox } from '@mui/material';
-import styled from 'styled-components';
+import { FormControl, FormGroup, FormControlLabel, Checkbox, Typography, Paper } from '@mui/material';
+import { styled } from '@mui/system';
 
-const FilterContainer = styled.div`
+const FilterContainer = styled(Paper)`
   width: 100%;
   padding: 1rem;
   box-sizing: border-box;
   background-color: #f5f5f5;
   border-radius: 8px;
-  margin-bottom: 20px;
 `;
 
-const CategoryTitle = styled.h3`
+const CategoryTitle = styled(Typography)`
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
 `;
@@ -19,7 +18,7 @@ const CategoryTitle = styled.h3`
 const FilterTable = ({ filters, handleFilterChange }) => {
   return (
     <FilterContainer>
-      <h2>Filter by Ingredient</h2>
+      <Typography variant="h6" gutterBottom>Filter by Ingredient</Typography>
       <FormControl component="fieldset">
         <CategoryTitle>Meats</CategoryTitle>
         <FormGroup>

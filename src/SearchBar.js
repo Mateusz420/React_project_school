@@ -1,9 +1,9 @@
-import { TextField, InputAdornment, IconButton } from "@mui/material";
+import { TextField, InputAdornment, IconButton, Box } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { useState, useEffect } from "react";
-import styled from 'styled-components';
+import { styled } from '@mui/system';
 
-const SearchContainer = styled.div`
+const SearchContainer = styled(Box)`
   display: flex;
   justify-content: space-between;
   align-items: center;
