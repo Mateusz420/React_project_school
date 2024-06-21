@@ -4,20 +4,26 @@ import Header from "./Header";
 import FilterTable from "./FilterTable";
 import { useState, useEffect } from "react";
 import { RecipesList } from "./RecipesList";
-import { Box, Grid } from "@mui/material";
-import { styled } from '@mui/system';
+import styled from 'styled-components';
 
-const Container = styled(Box)`
+const Container = styled.div`
   margin: 20px;
   @media (max-width: 600px) {
     margin: 10px;
   }
 `;
 
-const MobileGrid = styled(Grid)`
+const GridContainer = styled.div`
+  display: flex;
+  flex-direction: row;
   @media (max-width: 600px) {
     flex-direction: column;
   }
+`;
+
+const GridItem = styled.div`
+  flex: 1;
+  padding: 10px;
 `;
 
 function App() {
@@ -78,15 +84,15 @@ function App() {
     <div className="App">
       <Header />
       <Container>
-        <MobileGrid container spacing={2}>
-          <Grid item xs={12} sm={4} md={3}>
+        <GridContainer>
+          <GridItem>
             <FilterTable filters={filters} handleFilterChange={handleFilterChange} />
-          </Grid>
-          <Grid item xs={12} sm={8} md={9}>
+          </GridItem>
+          <GridItem>
             <Searchbar setRecipes={setRecipes} />
             <RecipesList recipes={recipes} />
-          </Grid>
-        </MobileGrid>
+          </GridItem>
+        </GridContainer>
       </Container>
     </div>
   );
