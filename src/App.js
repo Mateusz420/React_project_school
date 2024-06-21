@@ -4,21 +4,7 @@ import Header from "./Header";
 import FilterTable from "./FilterTable";
 import { useState, useEffect } from "react";
 import { RecipesList } from "./RecipesList";
-import { Box, Grid } from "@mui/material";
-import { styled } from '@mui/system';
-
-const Container = styled(Box)`
-  margin: 20px;
-  @media (max-width: 600px) {
-    margin: 10px;
-  }
-`;
-
-const MobileGrid = styled(Grid)`
-  @media (max-width: 600px) {
-    flex-direction: column;
-  }
-`;
+import { Box, Grid } from "@mui/material"; // Import Box and Grid from MUI
 
 function App() {
   const [recipes, setRecipes] = useState([]);
@@ -29,17 +15,10 @@ function App() {
     vegetarian: false,
     pork: false,
     vegan: false,
-    carrot: false,
-    broccoli: false,
-    spinach: false,
-    tomato: false,
-    apple: false,
-    banana: false,
-    orange: false,
-    strawberry: false,
+    vegetables: false,
+    fruits: false,
     dessert: false,
     breakfast: false,
-    dinner: false,
   });
 
   const fetchRecipesWithFilters = async () => {
@@ -77,17 +56,17 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Container>
-        <MobileGrid container spacing={2}>
-          <Grid item xs={12} sm={4} md={3}>
+      <Box m={2}>
+        <Grid container spacing={2}>
+          <Grid item xs={2}>
             <FilterTable filters={filters} handleFilterChange={handleFilterChange} />
           </Grid>
-          <Grid item xs={12} sm={8} md={9}>
+          <Grid item xs={10}>
             <Searchbar setRecipes={setRecipes} />
             <RecipesList recipes={recipes} />
           </Grid>
-        </MobileGrid>
-      </Container>
+        </Grid>
+      </Box>
     </div>
   );
 }
