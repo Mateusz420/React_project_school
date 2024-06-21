@@ -1,6 +1,19 @@
 import { TextField, InputAdornment, IconButton, Box } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { useState, useEffect } from "react";
+import { styled } from '@mui/system';
+
+const SearchContainer = styled(Box)`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+`;
 
 export const Searchbar = ({ setRecipes }) => {
   const [query, setQuery] = useState("chicken");
@@ -28,7 +41,7 @@ export const Searchbar = ({ setRecipes }) => {
   }, [query]);
 
   return (
-    <Box display="flex" justifyContent="space-between" alignItems="center">
+    <SearchContainer>
       <TextField
         label="Search"
         onChange={handleChange}
@@ -43,6 +56,6 @@ export const Searchbar = ({ setRecipes }) => {
         }}
         fullWidth
       />
-    </Box>
-    );
+    </SearchContainer>
+  );
 };
